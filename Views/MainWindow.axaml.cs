@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
 namespace IPSSharp.Views
@@ -17,6 +18,10 @@ namespace IPSSharp.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+        }
+        private void QuitButton_OnClick(object? sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

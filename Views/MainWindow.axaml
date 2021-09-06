@@ -3,15 +3,25 @@
         xmlns:vm="using:IPSSharp.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="540" d:DesignHeight="400"
         x:Class="IPSSharp.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="IPSSharp">
+        Title="IPSSharp"
+        Width="540"
+        Height="400">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid>
+        <TextBlock FontSize="23" Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,40,0,0"/>
+    
+        <StackPanel Spacing="50" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Content="{Binding PatchButtonText}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
+            <Button Name="QuitButton" Content="Quit" Click="QuitButton_OnClick" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
+        </StackPanel>
+    </Grid>
+
 
 </Window>
