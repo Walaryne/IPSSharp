@@ -46,7 +46,7 @@ namespace IPSSharp.Views
         private async void GetFileFromDialog(string name)
         {
             string[] filePaths = await new OpenFileDialog().ShowAsync(this);
-            if (filePaths != null)
+            if (filePaths is { Length: > 0 })
             {
                 this.FindControl<TextBox>(name).Text = filePaths[0];
             }
