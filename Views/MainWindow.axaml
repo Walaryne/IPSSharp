@@ -16,23 +16,23 @@
         PointerPressed="InputElement_OnPointerPressed">
     
     <Window.Background>
-        <SolidColorBrush Color="Black" Opacity="0.92"></SolidColorBrush>
+        <SolidColorBrush Color="Black" Opacity="0.92" />
     </Window.Background>
     
     <Window.Styles>
         <Style Selector="Button">
-            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
         <Style Selector="Button.fixedwidth">
-            <Setter Property="Width" Value="90"></Setter>
-            <Setter Property="FontSize" Value="11"></Setter>
+            <Setter Property="Width" Value="90" />
+            <Setter Property="FontSize" Value="11" />
         </Style>
         <Style Selector="TextBox">
-            <Setter Property="Width" Value="350"></Setter>
+            <Setter Property="Width" Value="350" />
         </Style>
         <Style Selector="TextBox.xycenter">
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
     </Window.Styles>
 
@@ -46,16 +46,16 @@
             <TextBlock FontSize="16" Text="{Binding StatusLineText}" HorizontalAlignment="Center"/>
             <StackPanel Spacing="15" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" Spacing="15">
-                    <TextBox Classes="xycenter" Name="RomFileText" Watermark="ROM File Path"></TextBox>
-                    <Button Classes="fixedwidth" Name="RomFilePickerButton" Content="Select ROM"></Button>
+                    <TextBox Classes="xycenter" Name="RomFileText" Text="{Binding RomFileText}" Watermark="ROM File Path" />
+                    <Button Classes="fixedwidth" Name="RomFilePickerButton" Click="RomFilePickerButton_OnClick" Content="Select ROM" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Spacing="15">
-                    <TextBox Classes="xycenter" Name="IPSFileText" Watermark="IPS File Path"></TextBox>
-                    <Button Classes="fixedwidth" Name="IPSFilePickerButton" Content="Select IPS"></Button>
+                    <TextBox Classes="xycenter" Name="IPSFileText" Text="{Binding IPSFileText}" Watermark="IPS File Path" />
+                    <Button Classes="fixedwidth" Name="IPSFilePickerButton" Click="IPSFilePickerButton_OnClick" Content="Select IPS" />
                 </StackPanel>
                 <StackPanel IsVisible="{Binding !OverwriteCheckboxValue}" Orientation="Horizontal" Spacing="15">
-                    <TextBox Classes="xycenter" Name="OutputFileText" Watermark="Output File Path"></TextBox>
-                    <Button Classes="fixedwidth" Name="OutputFilePickerButton" HorizontalContentAlignment="Center" Content="Select Output"></Button>
+                    <TextBox Classes="xycenter" Name="OutputFileText" Text="{Binding OutputFileText}" Watermark="Output File Path" />
+                    <Button Classes="fixedwidth" Name="OutputFilePickerButton" Click="OutputFilePickerButton_OnClick" HorizontalContentAlignment="Center" Content="Select Output" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -65,7 +65,7 @@
             <Button Name="QuitButton" Content="Quit" Click="QuitButton_OnClick" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
         </StackPanel>
         
-        <CheckBox Name="OverwriteCheckbox" Content="Overwrite" IsChecked="{Binding OverwriteCheckboxValue}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="9,0,0,10"></CheckBox>
+        <CheckBox Name="OverwriteCheckbox" Content="Overwrite" IsChecked="{Binding OverwriteCheckboxValue}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="9,0,0,10" />
     </Grid>
 
 
