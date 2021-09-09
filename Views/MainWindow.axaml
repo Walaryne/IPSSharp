@@ -65,7 +65,7 @@
             <Button Name="QuitButton" Content="Quit" Click="QuitButton_OnClick" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
         </StackPanel>
         
-        <CheckBox Name="OverwriteCheckbox" Content="Overwrite" IsChecked="{Binding OverwriteCheckboxValue}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="9,0,0,10" />
+        <CheckBox Name="OverwriteCheckbox" Content="Overwrite ROM" IsChecked="{Binding OverwriteCheckboxValue}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="9,0,0,10" />
     </Grid>
 
 
