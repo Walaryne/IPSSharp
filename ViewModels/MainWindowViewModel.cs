@@ -1,5 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using IPSSharp.Models;
 using ReactiveUI;
 namespace IPSSharp.ViewModels
 {
@@ -12,6 +12,7 @@ namespace IPSSharp.ViewModels
         private string romFileText;
         private string ipsFileText;
         private string outputFileText;
+        private readonly Patcher patcher = new();
         
         private bool overwriteCheckboxValue;
         public string StatusLineText
@@ -56,12 +57,18 @@ namespace IPSSharp.ViewModels
         public async Task PatchClicked()
         {
             StatusLineText = "Patching...";
-            await Task.Delay(5000);
-            StatusLineText = "Patched!";
 
-            await Console.Out.WriteLineAsync(romFileText);
-            await Console.Out.WriteLineAsync(ipsFileText);
-            await Console.Out.WriteLineAsync(outputFileText);
+            patcher.romFile = romFileText;
+            patcher.ipsFile = ipsFileText;
+            patcher.outputFile = outputFileText;
+            patcher.overwrite = overwriteCheckboxValue;
+
+            await Task.Run(() =>
+            {
+                patcher.Patch();
+            });
+            
+            StatusLineText = "Patched!";
         }
     }
 }
