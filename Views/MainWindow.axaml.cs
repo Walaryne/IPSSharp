@@ -11,7 +11,7 @@ namespace IPSSharp.Views
     public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
     {
 
-        private List<FileDialogFilter> openROMFileFilters, openIPSFileFilters, outputFileFilters;
+        private readonly List<FileDialogFilter> openROMFileFilters, openIPSFileFilters, outputFileFilters;
 
         public MainWindow()
         {
@@ -27,7 +27,8 @@ namespace IPSSharp.Views
                     Name = "SNES ROM Files",
                     Extensions = new List<string>
                     {
-                        "smc"
+                        "smc",
+                        "sfc"
                     }
                 }
             };
