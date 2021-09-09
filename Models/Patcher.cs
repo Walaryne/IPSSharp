@@ -17,6 +17,7 @@ namespace IPSSharp.Models
         public ushort times;
         public byte[] data;
     }
+    
     public class Patcher
     {
         public string? romFile, ipsFile, outputFile;
