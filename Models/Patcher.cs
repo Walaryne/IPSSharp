@@ -31,11 +31,8 @@ namespace IPSSharp.Models
             rleRecords = new List<RLERecord>();
         }
         
-        private static bool SetsContainSameElements<T>(IEnumerable<T> set1, IEnumerable<T> set2) {
-            var setXOR = new HashSet<T>(set1);
-            setXOR.SymmetricExceptWith(set2);
-            return setXOR.Count == 0;
-        }
+        //Thanks Horse!
+        private static bool Compare(ReadOnlySpan<byte> b1, ReadOnlySpan<byte> b2) => b1.SequenceEqual(b2);
 
         private void ReadRecords()
         {
@@ -58,7 +55,7 @@ namespace IPSSharp.Models
             {
                 byte[] offset = binaryReader.ReadBytes(3);
                 
-                if (SetsContainSameElements(offset, EOF))
+                if (Compare(offset, EOF))
                 {
                     break;
                 }
